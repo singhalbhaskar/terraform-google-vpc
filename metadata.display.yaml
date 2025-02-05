@@ -1,0 +1,106 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: blueprints.cloud.google.com/v1alpha1
+kind: BlueprintMetadata
+metadata:
+  name: terraform-google-vpc-display
+  annotations:
+    config.kubernetes.io/local-config: "true"
+spec:
+  info:
+    title: terraform-google-vpc
+    source:
+      repo: .
+  ui:
+    input:
+      variables:
+        additional_subnetworks:
+          name: additional_subnetworks
+          title: Additional Subnetworks
+        allowed_ssh_ip_ranges:
+          name: allowed_ssh_ip_ranges
+          title: Allowed Ssh Ip Ranges
+        default_primary_subnetwork_size:
+          name: default_primary_subnetwork_size
+          title: Default Primary Subnetwork Size
+        delete_default_internet_gateway_routes:
+          name: delete_default_internet_gateway_routes
+          title: Delete Default Internet Gateway Routes
+        deployment_name:
+          name: deployment_name
+          title: Deployment Name
+        enable_iap_rdp_ingress:
+          name: enable_iap_rdp_ingress
+          title: Enable Iap Rdp Ingress
+        enable_iap_ssh_ingress:
+          name: enable_iap_ssh_ingress
+          title: Enable Iap Ssh Ingress
+        enable_iap_winrm_ingress:
+          name: enable_iap_winrm_ingress
+          title: Enable Iap Winrm Ingress
+        enable_internal_traffic:
+          name: enable_internal_traffic
+          title: Enable Internal Traffic
+        extra_iap_ports:
+          name: extra_iap_ports
+          title: Extra Iap Ports
+        firewall_log_config:
+          name: firewall_log_config
+          title: Firewall Log Config
+        firewall_rules:
+          name: firewall_rules
+          title: Firewall Rules
+        ips_per_nat:
+          name: ips_per_nat
+          title: Ips Per Nat
+        mtu:
+          name: mtu
+          title: Mtu
+        network_address_range:
+          name: network_address_range
+          title: Network Address Range
+        network_description:
+          name: network_description
+          title: Network Description
+        network_name:
+          name: network_name
+          title: Network Name
+        network_routing_mode:
+          name: network_routing_mode
+          title: Network Routing Mode
+        primary_subnetwork:
+          name: primary_subnetwork
+          title: Primary Subnetwork
+        project_id:
+          name: project_id
+          title: Project Id
+        region:
+          name: region
+          title: Region
+        secondary_ranges:
+          name: secondary_ranges
+          title: Secondary Ranges
+        shared_vpc_host:
+          name: shared_vpc_host
+          title: Shared Vpc Host
+        subnetwork_name:
+          name: subnetwork_name
+          title: Subnetwork Name
+        subnetwork_size:
+          name: subnetwork_size
+          title: Subnetwork Size
+        subnetworks:
+          name: subnetworks
+          title: Subnetworks
