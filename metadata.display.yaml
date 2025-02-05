@@ -23,6 +23,7 @@ spec:
     title: terraform-google-vpc
     source:
       repo: .
+      sourceType: git
   ui:
     input:
       variables:

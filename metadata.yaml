@@ -22,7 +22,9 @@ spec:
   info:
     title: terraform-google-vpc
     source:
-      repo: .
+      repo: https://github.com/singhalbhaskar/terraform-google-vpc.git
+      sourceType: git
+    version: 0.0.1
     actuationTool:
       flavor: Terraform
       version: ">= 0.15.0"
@@ -189,7 +191,7 @@ spec:
       - name: subnetwork_self_link
         description: Self link of the primary subnetwork
         type: string
-      - name: subnetworks 
+      - name: subnetworks
         description: Full list of subnetwork objects belonging to the new VPC network
         type:
           - list
@@ -203,3 +205,8 @@ spec:
       - cloudresourcemanager.googleapis.com
       - storage-api.googleapis.com
       - serviceusage.googleapis.com
+    providerVersions:
+      - source: hashicorp/google
+        version: ">= 4.83.0, < 7"
+      - source: hashicorp/google-beta
+        version: ">= 4.83.0, < 7"
