@@ -22,7 +22,7 @@ spec:
   info:
     title: terraform-google-vpc
     source:
-      repo: .
+      repo: https://github.com/singhalbhaskar/terraform-google-multivpc.git
       sourceType: git
   ui:
     input:
