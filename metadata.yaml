@@ -169,7 +169,7 @@ spec:
         description: External IPs of the Cloud NAT from which outbound internet traffic will arrive (empty list if no NAT is used)
         type:
           - list
-          - - string
+          - string
       - name: network_id
         description: ID of the new VPC network
         type: string
@@ -195,7 +195,7 @@ spec:
         description: Full list of subnetwork objects belonging to the new VPC network
         type:
           - list
-          - - string
+          - string
   requirements:
     roles:
       - level: Project
