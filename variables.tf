@@ -25,12 +25,6 @@ variable "network_name" {
   default     = null
 }
 
-variable "subnetwork_name" {
-  description = "The name of the network to be created (if unsupplied, will default to \"{deployment_name}-primary-subnet\")"
-  type        = string
-  default     = null
-}
-
 # tflint-ignore: terraform_unused_declarations
 variable "subnetwork_size" {
   description = "DEPRECATED: please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions"
@@ -138,12 +132,6 @@ variable "additional_subnetworks" {
     condition     = var.additional_subnetworks == null
     error_message = "additional_subnetworks is deprecated. Please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions."
   }
-}
-
-variable "secondary_ranges" {
-  type        = map(list(object({ range_name = string, ip_cidr_range = string })))
-  description = "Secondary ranges that will be used in some of the subnets. Please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions."
-  default     = {}
 }
 
 variable "network_routing_mode" {

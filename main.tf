@@ -17,8 +17,16 @@
 locals {
   autoname        = replace(var.deployment_name, "_", "-")
   network_name    = var.network_name == null ? "${local.autoname}-net" : var.network_name
-  subnetwork_name = var.subnetwork_name == null ? "${local.autoname}-primary-subnet" : var.subnetwork_name
-
+  subnetwork_name = "${var.deployment_name}-gke-net"
+  secondary_ranges = {
+    ("${var.deployment_name}-gke-net") = [{
+      ip_cidr_range = "10.4.0.0/14"
+      range_name    = "pods"
+      }, {
+      ip_cidr_range = "10.0.32.0/20"
+      range_name    = "services"
+    }]
+  }
   # define a default subnetwork for cases in which no explicit subnetworks are
   # defined in var.subnetworks
   default_primary_subnetwork_cidr_block = cidrsubnet(var.network_address_range, var.default_primary_subnetwork_size, 0)
@@ -157,7 +165,7 @@ module "vpc" {
   project_id                             = var.project_id
   auto_create_subnetworks                = false
   subnets                                = local.subnetworks
-  secondary_ranges                       = var.secondary_ranges
+  secondary_ranges                       = local.secondary_ranges
   routing_mode                           = var.network_routing_mode
   mtu                                    = var.mtu
   description                            = var.network_description
