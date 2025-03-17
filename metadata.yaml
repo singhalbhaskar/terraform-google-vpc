@@ -24,7 +24,7 @@ spec:
     source:
       repo: https://github.com/singhalbhaskar/terraform-google-vpc.git
       sourceType: git
-    version: 0.0.4
+    version: 0.0.5
     actuationTool:
       flavor: Terraform
       version: ">= 0.15.0"
@@ -57,9 +57,6 @@ spec:
         required: true
       - name: network_name
         description: The name of the network to be created (if unsupplied, will default to "{deployment_name}-net")
-        varType: string
-      - name: subnetwork_name
-        description: The name of the network to be created (if unsupplied, will default to "{deployment_name}-primary-subnet")
         varType: string
       - name: subnetwork_size
         description: "DEPRECATED: please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions"
@@ -108,10 +105,6 @@ spec:
       - name: additional_subnetworks
         description: "DEPRECATED: please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions"
         varType: list(map(string))
-      - name: secondary_ranges
-        description: Secondary ranges that will be used in some of the subnets. Please see https://goo.gle/hpc-toolkit-vpc-deprecation for migration instructions.
-        varType: map(list(object({ range_name = string, ip_cidr_range = string })))
-        defaultValue: {}
       - name: network_routing_mode
         description: The network routing mode (default "GLOBAL")
         varType: string
